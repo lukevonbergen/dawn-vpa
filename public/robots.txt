@@ -1,0 +1,9 @@
+# Dawn VA — robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://dawnva.co.uk/sitemap.xml
+
+# Crawl-delay (optional, polite)
+Crawl-delay: 1

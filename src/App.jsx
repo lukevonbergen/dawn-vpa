@@ -128,7 +128,7 @@ function Hero() {
         >
           <div className="headshot-placeholder">
             <img
-              src="/img/dawn.jpg"
+              src="/img/dawn-new.png"
               alt="Dawn, UK-based Virtual Assistant specialising in internal comms, marketing and admin support"
               width="220"
               height="220"
@@ -166,6 +166,9 @@ function About() {
                 and a genuine love for getting things done well. Whether it's
                 crafting clear internal communications, supporting your
                 marketing efforts, or keeping your admin running smoothly — I'm here to help.
+              </p>
+              <p>
+                If you need consistent marketing support without the cost or commitment of a full-time hire, I can provide ongoing, flexible support that keeps your projects moving.
               </p>
               <p>
                 I work evenings and weekends, which means you can hand things

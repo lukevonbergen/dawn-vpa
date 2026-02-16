@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import {
-  Moon, Clock, Eye, Smile, MessageSquare, Users, Megaphone,
+  Moon, Eye, Smile, MessageSquare, Users, Megaphone,
   Palette, FolderOpen, ArrowRight, Mail, Send, Heart,
   Zap, Shield, ChevronUp
 } from 'lucide-react'
@@ -52,7 +52,7 @@ function Navbar() {
   const links = [
     { label: 'About', href: '#about' },
     { label: 'Services', href: '#services' },
-    { label: 'Packages', href: '#packages' },
+    { label: 'Pricing', href: '#packages' },
     { label: 'Contact', href: '#contact' },
   ]
 
@@ -61,8 +61,9 @@ function Navbar() {
   return (
     <header role="banner">
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`} aria-label="Main navigation">
-        <a href="#hero" className="navbar-brand" aria-label="Dawn VA — Home">
-          Dawn <span>VA</span>
+        <a href="#hero" className="navbar-brand" aria-label="DawnVA — Home">
+          <span className="brand-name">Dawn<span>VA</span></span>
+          <small>Virtual Services</small>
         </a>
         <div className="navbar-links" role="menubar">
           {links.map(l => (
@@ -103,15 +104,20 @@ function Hero() {
           variants={stagger}
         >
           <motion.p className="section-label" variants={fadeUp} custom={0}>
-            UK-Based Virtual Assistant
+            Virtual Fractional Marketing &amp; Admin Support
           </motion.p>
           <motion.h1 variants={fadeUp} custom={1}>
             Wake Up to <span className="highlight">It Done.</span>
           </motion.h1>
           <motion.p variants={fadeUp} custom={2}>
-            UK-based Virtual Assistant specialising in internal comms,
-            marketing support, and admin — working evenings &amp; weekends
-            so you don't have to.
+            UK-based Virtual Assistant specialising in marketing &amp; communications
+            and admin support — working evenings &amp; weekends so you don't have to.
+          </motion.p>
+          <motion.p variants={fadeUp} custom={2} style={{ fontSize: '1rem', opacity: 0.8 }}>
+            Running a business or managing a demanding workload can be overwhelming — and
+            finding the right support shouldn't be. DawnVA offers Virtual Fractional Marketing
+            and Admin Support, giving you the clarity, consistency, and flexibility you need
+            to stay organised and keep your projects moving.
           </motion.p>
           <motion.div variants={fadeUp} custom={3}>
             <a href="#contact" className="btn-primary" aria-label="Get in touch with Dawn VA">
@@ -155,27 +161,32 @@ function About() {
       <div className="section-container">
         <AnimateOnScroll>
           <p className="section-label">About Me</p>
-          <h2 className="section-title" id="about-title">Hello, I'm Dawn — Your UK Virtual Assistant</h2>
+          <h2 className="section-title" id="about-title">Hello, I'm Dawn – Your Virtual Fractional Marketing Partner</h2>
         </AnimateOnScroll>
 
         <div className="about-content">
           <AnimateOnScroll delay={1}>
             <div className="about-text">
               <p>
-                I'm a UK-based Virtual Assistant with a calm, organised approach
-                and a genuine love for getting things done well. Whether it's
-                crafting clear internal communications, supporting your
-                marketing efforts, or keeping your admin running smoothly — I'm here to help.
+                I'm a UK-based Virtual Marketing Assistant with over 25 years of marketing
+                experience, helping businesses strengthen their marketing, improve their
+                communications, and stay on top of essential admin.
               </p>
               <p>
-                If you need consistent marketing support without the cost or commitment of a full-time hire, I can provide ongoing, flexible support that keeps your projects moving.
+                Whether you're a small business or start-up needing a hands-on marketing
+                professional or an established company that needs an extra pair of hands or
+                a dedicated remote marketing resource, I offer flexible, reliable support
+                that fits your business — without the cost or commitment of a full-time hire.
               </p>
               <p>
-                I work evenings and weekends, which means you can hand things
-                off at the end of your day and wake up to find them done.
-                Professional communication, meticulous attention to detail, and
-                a friendly approach — that's what you can always expect from
-                your virtual assistant.
+                Alongside marketing and communications, I offer a broad range of general
+                administrative services, giving you the freedom to hand over the tasks that
+                slow you down. And because I work evenings and weekends, you can wrap up your
+                day knowing the work will be waiting for you, completed, by morning.
+              </p>
+              <p>
+                Calm, organised, and committed to getting things done well — that's the kind
+                of support you can expect when you work with me.
               </p>
             </div>
           </AnimateOnScroll>
@@ -206,23 +217,21 @@ function About() {
 function Services() {
   const services = [
     {
-      icon: <MessageSquare size={22} aria-hidden="true" />,
-      title: 'Internal Communications',
-      items: ['Staff updates & announcements', 'Newsletters & bulletins', 'Employee engagement content', 'Clear, professional messaging'],
-    },
-    {
       icon: <Megaphone size={22} aria-hidden="true" />,
-      title: 'Marketing Support',
-      items: ['Social media management', 'Email marketing campaigns', 'Blog posts & content calendars', 'Research & website builds/updates'],
+      title: 'Fractional Marketing Support',
+      description: 'Strategic and hands-on support for internal communications, brand messaging, content planning, social media, email marketing, and campaign coordination.',
+      items: ['Internal communications', 'Brand messaging & tone of voice', 'Content planning & scheduling', 'Social media support', 'Email marketing & newsletters', 'Campaign coordination and execution'],
     },
     {
       icon: <Palette size={22} aria-hidden="true" />,
-      title: 'Design & Collateral',
+      title: 'Branding, Design & Collateral',
+      description: 'Professional Canva and InDesign design for digital and print materials — polished, consistent, and on-brand.',
       items: ['Flyers, posters & brochures', 'PDF guides & branded templates', 'Presentations & event materials', 'Canva & InDesign expertise'],
     },
     {
       icon: <FolderOpen size={22} aria-hidden="true" />,
-      title: 'Admin & Organisation',
+      title: 'Admin & Business Support',
+      description: 'Dependable help with inbox and diary management, document creation, research, scheduling, and operational tasks.',
       items: ['Document creation & formatting', 'Proofreading & editing', 'File organisation & management', 'Research & reporting'],
     },
   ]
@@ -232,10 +241,11 @@ function Services() {
       <div className="section-container">
         <AnimateOnScroll>
           <p className="section-label">What I Do</p>
-          <h2 className="section-title" id="services-title">Virtual Assistant Services</h2>
+          <h2 className="section-title" id="services-title">Services Snapshot</h2>
           <p className="section-subtitle">
-            From internal comms to creative design — I offer flexible virtual assistant
-            support tailored to what you actually need.
+            Whether you need help with day-to-day admin, communications, content planning,
+            campaign delivery, or simply an extra pair of hands for your marketing team,
+            I provide reliable, out-of-hours support that fits around your schedule.
           </p>
         </AnimateOnScroll>
 
@@ -252,6 +262,7 @@ function Services() {
                 <div className="service-icon-wrapper">{s.icon}</div>
                 <h3>{s.title}</h3>
               </div>
+              {s.description && <p className="service-description">{s.description}</p>}
               <ul>
                 {s.items.map((item, j) => (
                   <li key={j}>{item}</li>
@@ -267,26 +278,47 @@ function Services() {
 
 /* ─── Packages ─── */
 function Packages() {
-  const packages = [
+  const projectExamples = [
+    'Social media setup or refresh',
+    'Email newsletter creation',
+    'Internal comms campaigns',
+    'Canva or InDesign template packs',
+    'Brand messaging refresh',
+    'Presentation design',
+    'Document formatting bundles',
+  ]
+
+  const retainers = [
     {
-      name: 'Starter',
-      price: '£120',
-      hours: '5 hours / month',
-      features: ['Light admin support', 'Occasional comms tasks', 'Small marketing tasks', 'Email support'],
+      name: 'Essentials Support',
+      price: '£350',
+      hours: '5 hours per month',
+      description: 'Light admin support + occasional marketing help.',
+      bestFor: 'Busy professionals or small businesses needing minimal but reliable support.',
       featured: false,
     },
     {
-      name: 'Standard',
-      price: '£240',
-      hours: '10 hours / month',
-      features: ['Regular weekly support', 'Admin, comms or marketing', 'Content creation & scheduling', 'Priority email support'],
+      name: 'Momentum Support',
+      price: '£650',
+      hours: '10 hours per month',
+      description: 'Weekly admin + marketing support to keep things moving consistently.',
+      bestFor: 'Small businesses wanting regular help without a full retainer.',
+      featured: false,
+    },
+    {
+      name: 'Growth Partner',
+      price: '£1,200',
+      hours: '20 hours per month',
+      description: 'Ongoing fractional marketing + admin support for growing businesses.',
+      bestFor: 'Businesses needing consistent marketing execution + admin stability.',
       featured: true,
     },
     {
-      name: 'Pro',
-      price: '£480',
-      hours: '20 hours / month',
-      features: ['Consistent weekly support', 'Full-service across all areas', 'Strategy & planning included', 'Priority turnaround'],
+      name: 'Marketing Boost',
+      price: '£1,500',
+      hours: '25 hours per month',
+      description: 'Extra marketing capacity for companies or teams needing an additional pair of hands.',
+      bestFor: 'Marketing teams, agencies, or companies needing flexible, skilled support.',
       featured: false,
     },
   ]
@@ -295,51 +327,76 @@ function Packages() {
     <section className="packages" id="packages" aria-labelledby="packages-title">
       <div className="section-container">
         <AnimateOnScroll>
-          <p className="section-label">Pricing</p>
-          <h2 className="section-title" id="packages-title">Virtual Assistant Packages &amp; Pricing</h2>
+          <p className="section-label">Ways to Work With Me</p>
+          <h2 className="section-title" id="packages-title">Flexible Pricing for Virtual Fractional Marketing and Admin Support</h2>
           <p className="section-subtitle">
-            Simple, transparent pricing. Pick the level of support that suits you,
-            or get in touch for something bespoke.
+            Whether you need occasional help, support with a specific project, or ongoing
+            partnership, I offer flexible pricing options designed to fit your workload and your budget.
           </p>
         </AnimateOnScroll>
 
+        {/* Ad-Hoc + Project Pricing */}
         <motion.div
-          className="packages-grid"
+          className="pricing-top"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
           variants={stagger}
         >
-          {packages.map((pkg, i) => (
+          <motion.article className="pricing-card" variants={fadeUp} custom={0}>
+            <h3>Ad-Hoc Hourly Rate</h3>
+            <div className="package-price">£35<span>/hour</span></div>
+            <p className="pricing-card-desc">
+              Flexible help when you need it — perfect for busy periods or one-off tasks.
+            </p>
+          </motion.article>
+
+          <motion.article className="pricing-card" variants={fadeUp} custom={1}>
+            <h3>Project Pricing</h3>
+            <div className="package-price">From £250</div>
+            <p className="pricing-card-desc">
+              For defined pieces of work with clear deliverables. Ideal for one-off marketing or admin projects such as:
+            </p>
+            <ul>
+              {projectExamples.map((item, j) => (
+                <li key={j}>{item}</li>
+              ))}
+            </ul>
+          </motion.article>
+        </motion.div>
+
+        {/* Monthly Retainers */}
+        <AnimateOnScroll delay={1}>
+          <h3 className="retainers-heading">Monthly Retainer Packages</h3>
+          <p className="retainers-subtitle">
+            Ongoing support for businesses that want consistency and momentum.
+          </p>
+        </AnimateOnScroll>
+
+        <motion.div
+          className="retainers-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={stagger}
+        >
+          {retainers.map((pkg, i) => (
             <motion.article
               key={i}
-              className={`package-card${pkg.featured ? ' featured' : ''}`}
+              className={`retainer-card${pkg.featured ? ' featured' : ''}`}
               variants={fadeUp}
               custom={i}
-              aria-label={`${pkg.name} package — ${pkg.price} per month`}
+              aria-label={`${pkg.name} — ${pkg.price} per month`}
             >
               {pkg.featured && <div className="popular-badge" aria-label="Most popular package">Most Popular</div>}
-              <h3>{pkg.name}</h3>
-              <div className="package-price">
-                {pkg.price}<span>/month</span>
-              </div>
+              <h4>{pkg.name}</h4>
+              <div className="package-price">{pkg.price}<span>/month</span></div>
               <div className="package-hours">{pkg.hours}</div>
-              <ul>
-                {pkg.features.map((f, j) => (
-                  <li key={j}>{f}</li>
-                ))}
-              </ul>
+              <p className="retainer-desc">{pkg.description}</p>
+              <p className="retainer-best-for"><strong>Best for:</strong> {pkg.bestFor}</p>
             </motion.article>
           ))}
         </motion.div>
-
-        <AnimateOnScroll delay={2}>
-          <p className="packages-note">
-            <strong>Hourly rate:</strong> £25 (admin, comms, marketing) &nbsp;|&nbsp;{' '}
-            <strong>Design rate:</strong> £30–£35 (Canva &amp; InDesign) &nbsp;|&nbsp;{' '}
-            Fixed price projects available on request.
-          </p>
-        </AnimateOnScroll>
       </div>
     </section>
   )
@@ -348,11 +405,12 @@ function Packages() {
 /* ─── Why Work With Me ─── */
 function WhyMe() {
   const reasons = [
-    { icon: <Shield size={24} aria-hidden="true" />, label: 'Calm &\nOrganised' },
-    { icon: <MessageSquare size={24} aria-hidden="true" />, label: 'Professional\nCommunication' },
-    { icon: <Users size={24} aria-hidden="true" />, label: 'Flexible &\nTailored' },
-    { icon: <Zap size={24} aria-hidden="true" />, label: 'Quick\nTurnaround' },
-    { icon: <Heart size={24} aria-hidden="true" />, label: 'Friendly &\nReliable' },
+    { icon: <Moon size={24} aria-hidden="true" />, label: 'Evening & Weekend\nAvailability' },
+    { icon: <Shield size={24} aria-hidden="true" />, label: '25+ Years\'\nExperience' },
+    { icon: <Zap size={24} aria-hidden="true" />, label: 'Strategic +\nPractical Support' },
+    { icon: <MessageSquare size={24} aria-hidden="true" />, label: 'Clear Communication\n& Reliable Delivery' },
+    { icon: <Users size={24} aria-hidden="true" />, label: 'Ideal for SMEs\n& Marketing Teams' },
+    { icon: <Heart size={24} aria-hidden="true" />, label: 'A Single Partner\nWho Gets Your Brand' },
   ]
 
   return (
@@ -390,7 +448,7 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const mailtoLink = `mailto:hello@dawnva.co.uk?subject=Enquiry from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${encodeURIComponent(form.name)} (${encodeURIComponent(form.email)})`
+    const mailtoLink = `mailto:info@dawnva.co.uk?subject=Enquiry from ${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message)}%0A%0AFrom: ${encodeURIComponent(form.name)} (${encodeURIComponent(form.email)})`
     window.location.href = mailtoLink
   }
 
@@ -401,15 +459,15 @@ function Contact() {
           <AnimateOnScroll>
             <div className="contact-text">
               <p className="section-label">Get In Touch</p>
-              <h2 className="section-title" id="contact-title">Let's Chat About Your VA Support</h2>
+              <h2 className="section-title" id="contact-title">Let's Make Your Workload Lighter</h2>
               <p>
-                Need reliable virtual assistant support outside the usual 9–5? I'd love to hear
-                from you. Whether you have a clear idea of what you need, or just
-                want to explore how a UK-based VA can help — drop me a message.
+                If you're looking for flexible, reliable Virtual Fractional Marketing and
+                Admin Support, I'd love to hear from you. Tell me what you need, and I'll
+                create a tailored plan that fits your goals and your schedule.
               </p>
-              <a href="mailto:hello@dawnva.co.uk" className="contact-email" aria-label="Email Dawn VA at hello@dawnva.co.uk">
+              <a href="mailto:info@dawnva.co.uk" className="contact-email" aria-label="Email Dawn VA at info@dawnva.co.uk">
                 <Mail size={18} aria-hidden="true" />
-                hello@dawnva.co.uk
+                info@dawnva.co.uk
               </a>
             </div>
           </AnimateOnScroll>
@@ -471,11 +529,11 @@ function Footer() {
   return (
     <footer className="footer" role="contentinfo">
       <div className="footer-inner">
-        <p className="footer-copy">&copy; 2025 Dawn VA. All rights reserved.</p>
+        <p className="footer-copy">&copy; 2026 Dawn VA. All rights reserved.</p>
         <nav className="footer-links" aria-label="Footer navigation">
           <a href="#about">About</a>
           <a href="#services">Services</a>
-          <a href="#packages">Packages</a>
+          <a href="#packages">Pricing</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>

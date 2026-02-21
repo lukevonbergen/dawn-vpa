@@ -409,6 +409,34 @@ section {
   color: var(--midnight-blue);
 }
 
+.about-needs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.about-needs-list li {
+  font-size: 1rem;
+  color: var(--charcoal);
+  padding-left: 1.25rem;
+  position: relative;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+.about-needs-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--soft-teal);
+  opacity: 0.6;
+}
+
 @media (max-width: 768px) {
   .about-content {
     grid-template-columns: 1fr;
@@ -594,10 +622,18 @@ section {
   margin-bottom: 0.5rem;
 }
 
+/* Single hourly card centered */
+.pricing-top-single {
+  grid-template-columns: 1fr;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Retainer grid */
 .retainers-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -693,7 +729,10 @@ section {
 
 @media (max-width: 960px) {
   .retainers-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

@@ -285,27 +285,19 @@ function Services() {
 
 /* ─── Packages ─── */
 function Packages() {
-  const retainers = [
+  const options = [
     {
-      name: 'Starter Package',
-      price: '£200',
-      hours: '5 hours per month',
-      bestFor: 'Busy professionals or small businesses needing minimal but reliable support.',
-      featured: false,
+      title: 'Hourly Support',
+      description: 'For ad-hoc tasks, quick updates, or when you just need an extra pair of hands. A straightforward hourly rate gives you complete flexibility, making it easy to scale support up or down as your week changes.',
     },
     {
-      name: 'Momentum Package',
-      price: '£320 – £400',
-      hours: '8–10 hours per month',
-      bestFor: 'Small businesses wanting regular help without a full retainer.',
-      featured: false,
+      title: 'Monthly Packages',
+      description: 'For businesses that want consistent support, I offer a range of monthly packages shaped around different levels of need. Each one is designed to work with your priorities, your pace, and your budget — from light-touch support to a more involved marketing partnership.',
+      extra: 'You can choose the level that suits you best, or we can build something tailored.',
     },
     {
-      name: 'Team Booster',
-      price: '£640 – £800',
-      hours: '16–20 hours per month',
-      bestFor: 'Businesses needing consistent marketing support.',
-      featured: false,
+      title: 'Tailored Plans',
+      description: 'If your requirements don\'t sit neatly within a package, I can create a custom plan shaped around your specific goals, workload, and preferred way of working.',
     },
   ]
 
@@ -314,35 +306,11 @@ function Packages() {
       <div className="section-container">
         <AnimateOnScroll>
           <p className="section-label">Flexible Pricing</p>
-          <h2 className="section-title" id="packages-title">Pricing That Fits Your Workload</h2>
+          <h2 className="section-title" id="packages-title">Flexible Pricing for Your Marketing Support</h2>
           <p className="section-subtitle">
-            Whether you need a little help, a lot of help, or support during peak periods,
-            I offer options designed to fit your workload and budget.
-          </p>
-        </AnimateOnScroll>
-
-        {/* Hourly Rate */}
-        <motion.div
-          className="pricing-top pricing-top-single"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
-          variants={stagger}
-        >
-          <motion.article className="pricing-card" variants={fadeUp} custom={0}>
-            <h3>Hourly Support</h3>
-            <div className="package-price">£45<span>/hr</span></div>
-            <p className="pricing-card-desc">
-              Perfect for ad-hoc tasks, small projects or occasional assistance.
-            </p>
-          </motion.article>
-        </motion.div>
-
-        {/* Monthly Packages */}
-        <AnimateOnScroll delay={1}>
-          <h3 className="retainers-heading">Monthly Support Packages</h3>
-          <p className="retainers-subtitle">
-            For businesses and marketing teams who want consistent, ongoing support and steady momentum.
+            I keep my pricing simple and adaptable so you can get exactly the level of support
+            you need, when you need it. Whether you're looking for occasional help or ongoing
+            partnership, there's an option that fits your workload and your goals.
           </p>
         </AnimateOnScroll>
 
@@ -353,19 +321,16 @@ function Packages() {
           viewport={{ once: true, margin: '-60px' }}
           variants={stagger}
         >
-          {retainers.map((pkg, i) => (
+          {options.map((opt, i) => (
             <motion.article
               key={i}
-              className={`retainer-card${pkg.featured ? ' featured' : ''}`}
+              className="retainer-card"
               variants={fadeUp}
               custom={i}
-              aria-label={`${pkg.name} — ${pkg.price} per month`}
             >
-              {pkg.featured && <div className="popular-badge" aria-label="Most popular package">Most Popular</div>}
-              <h4>{pkg.name}</h4>
-              <div className="package-price">{pkg.price}<span>/month</span></div>
-              <div className="package-hours">{pkg.hours}</div>
-              <p className="retainer-best-for"><strong>Best for:</strong> {pkg.bestFor}</p>
+              <h4>{opt.title}</h4>
+              <p className="retainer-best-for">{opt.description}</p>
+              {opt.extra && <p className="retainer-best-for" style={{ marginTop: '0.75rem' }}>{opt.extra}</p>}
             </motion.article>
           ))}
         </motion.div>

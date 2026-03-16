@@ -192,14 +192,14 @@ section {
 
 /* ---------- HERO ---------- */
 .hero {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--light-grey);
   position: relative;
   overflow: hidden;
-  padding-top: 72px;
+  padding-top: 10rem;
+  padding-bottom: 6rem;
 }
 
 .hero-bg-shape {
@@ -675,10 +675,10 @@ section {
 }
 
 .retainer-card h4 {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--midnight-blue);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .package-price {
@@ -714,13 +714,10 @@ section {
 }
 
 .retainer-best-for {
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   color: var(--charcoal);
-  opacity: 0.75;
-  line-height: 1.6;
-  border-top: 1px solid rgba(26, 46, 74, 0.08);
-  padding-top: 0.75rem;
-  margin-top: auto;
+  opacity: 0.85;
+  line-height: 1.7;
 }
 
 .retainer-best-for strong {
